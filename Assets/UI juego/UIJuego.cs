@@ -3,12 +3,12 @@ using UnityEngine.UIElements;
 
 public class UIJuego : MonoBehaviour
 {
-    UIDpcument menu;
+    UIDocument menu;
     // botones
-    Button jugar; 
-    Button opciones; 
-    Button vidaButton; 
-    Button manaButton; 
+    Button jugar;
+    Button opciones;
+    Button vidaButton;
+    Button manaButton;
 
     // sliders
     Slider vidaSlider;
@@ -16,8 +16,8 @@ public class UIJuego : MonoBehaviour
 
     private void OnEnable()
     {
-        menu = GetComponent<UIDpcument>();
-        VisualElement root = menu.rootViualElement;
+        menu = GetComponent<UIDocument>();
+        VisualElement root = menu.rootVisualElement;
 
         // Inicializar botones
         jugar = root.Q<Button>("jugar");
@@ -32,3 +32,5 @@ public class UIJuego : MonoBehaviour
         // Configurar sliders (valores iniciales)
         vidaSlider.value = 100; // Vida inicial
         manaSlider.value = 50;  // Mana inicial
+    }
+}
