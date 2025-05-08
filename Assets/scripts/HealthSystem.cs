@@ -1,7 +1,11 @@
 using UnityEngine;
 
-public class CargarVida : MonoBehaviour
+public class HealthSystem : MonoBehaviour
 {
+    public float maxHealth;
+    public float minHealth;
+    public float currentHealth;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,4 +17,8 @@ public class CargarVida : MonoBehaviour
     {
         
     }
+
+    void RestoreHealth(){
+
+    } 
 }

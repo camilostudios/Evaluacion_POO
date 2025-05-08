@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PerderVida
+public class genericHandler
 {
     
 }
