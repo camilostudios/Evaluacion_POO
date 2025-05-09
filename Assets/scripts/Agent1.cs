@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Agent1", menuName = "Scriptable Objects/Agent1")]
-public class Agent1 : ScriptableObject
+public class Agent1 : PlayerHandler
 {
-    
+    PlayerHandler agente1 = new("Guerrero", 1f);
 }
