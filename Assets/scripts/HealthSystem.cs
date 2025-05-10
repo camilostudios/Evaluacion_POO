@@ -18,7 +18,8 @@ public class HealthSystem : MonoBehaviour
         
     }
 
-    void RestoreHealth(){
-
+    public RestoreHealth(float cure){
+        currentHealth += cure;
+        return currentHealth;
     } 
 }

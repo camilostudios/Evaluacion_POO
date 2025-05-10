@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerHandler : genericHandler
 {
-    public string name;
     public float speed;
     public float gravity;
     public CharacterController controller;
@@ -11,5 +10,9 @@ public class PlayerHandler : genericHandler
     {
         this.name = name;
         this.speed = speed;
+    }
+
+    protected PlayerMove(){
+        
     }
 }
