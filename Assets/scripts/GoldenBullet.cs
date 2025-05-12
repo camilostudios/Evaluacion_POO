@@ -2,9 +2,20 @@ using UnityEngine;
 
 public class GoldenBullet : Skills
 {
-    GoldenBullet goldenBullet = new("GoldenBullet", Sprite, 3, true);
-    public override UseSkill()
+    public float damage = 20f;
+    
+    public GoldenBullet(string name, int Cooldown, bool Usable)
     {
-        
+        this.name = name;
+        this.Cooldown = Cooldown;
+        this.Usable = Usable;
+    }
+    
+    public override void UseSkill()
+    {
+        RaycastHit raycastHit;
+        if(Physics.Raycast(camera.transform.position, out raycastHit)){
+            DamageRecieved(damage);
+        }
     }
 }

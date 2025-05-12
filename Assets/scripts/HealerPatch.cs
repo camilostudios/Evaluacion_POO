@@ -4,8 +4,14 @@ public class HealerPatch : Skills
 {
     public float cure = 20f;
     
-    HealerPatch healerPatch= new("HealerPatch", Sprite, 30, true);
-    public override UseSkill()
+    public HealerPatch(string name, int Cooldown, bool Usable)
+    {
+        this.name = name;
+        this.Cooldown = Cooldown;
+        this.Usable = Usable;
+    }
+    
+    public override void UseSkill()
     {
         HealthSystem.RestoreHealth(cure);
     }

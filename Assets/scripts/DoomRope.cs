@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class DoomRope : Skills
 {
-    DoomRope doomRope = new("DoomRope", Sprite, 15, true);
-    public override UseSkill()
+    public float damage = 30f;
+    
+    public DoomRope(string name, int Cooldown, bool Usable)
+    {
+        this.name = name;
+        this.Cooldown = Cooldown;
+        this.Usable = Usable;
+    }
+    
+    public override void UseSkill()
     {
         
     }

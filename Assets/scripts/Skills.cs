@@ -1,14 +1,10 @@
 using UnityEngine;
 
-public abstract class Skills : MonoBehaviour
+public abstract class Skills
 {
-    private string name;
-    private Sprite image;
-    private int Cooldown;
-    private bool Usable;
-    
-    public UseSkill()
-    {
-        
-    }
+    public string name;
+    public int Cooldown;
+    public bool Usable;
+
+    public abstract void UseSkill();
 }
