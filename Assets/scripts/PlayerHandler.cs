@@ -7,14 +7,14 @@ public class PlayerHandler : genericHandler
     public CharacterController controller;
     public Camera camera;
 
-    public DoomRope doomRope = new("DoomRope", 15, true);
-    public GoldenBullet goldenBullet = new("GoldenBullet", 3, true);
-    public HealerPatch healerPatch = new("HealerPatch", 30, true);
+    public genericHandler playable = new("Players");
+    
+    public PlayerHandler(){}
     public PlayerHandler(string name, float speed, float maxHealth, float minHealth, float currentHealth)
     {
         this.name = name;
         this.speed = speed;
-        this.maxHealth = maxHealth;
+        healthSystem.maxHealth = maxHealth;
         this.minHealth = minHealth;
         this.currentHealth = currentHealth;
     }

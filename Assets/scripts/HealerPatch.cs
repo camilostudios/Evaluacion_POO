@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class HealerPatch : Skills
 {
-    public float cure = 20f;
+    float cure = 20f;
+    HealthSystem healthSystem;
     
     public HealerPatch(string name, int Cooldown, bool Usable)
     {
@@ -13,6 +14,6 @@ public class HealerPatch : Skills
     
     public override void UseSkill()
     {
-        HealthSystem.RestoreHealth(cure);
+        healthSystem.RestoreHealth(cure);
     }
 }

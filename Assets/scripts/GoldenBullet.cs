@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class GoldenBullet : Skills
 {
-    public float damage = 20f;
+    float damage = 20f;
+    HealthSystem healthSystem;
+    public Camera camera;
     
     public GoldenBullet(string name, int Cooldown, bool Usable)
     {
@@ -13,9 +15,12 @@ public class GoldenBullet : Skills
     
     public override void UseSkill()
     {
+        camera.GetComponent<Transform>();
         RaycastHit raycastHit;
-        if(Physics.Raycast(camera.transform.position, out raycastHit)){
-            DamageRecieved(damage);
+        if(Physics.Raycast(camera.transform.position, camera.transform.forward, out raycastHit)){
+            healthSystem.DamageRecieved(damage);
         }
     }
+
+    
 }

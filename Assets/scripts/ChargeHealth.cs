@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class ChargeHeatlh : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public HealthSystem healthSystem;
 
-    // Update is called once per frame
-    void Update()
+    float cure = 10f;
+
+    public void OnTriggerStay(Collider collision)
     {
-        
+        healthSystem.RestoreHealth(cure);
     }
 }

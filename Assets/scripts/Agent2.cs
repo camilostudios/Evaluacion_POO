@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class Agent1 : MonoBehaviour
+public class Agent2 : MonoBehaviour
 {
-    PlayerHandler agente1 = new("Guerrero", 1f, 100f, 1f, 0f);
+    PlayerHandler agente2 = new("Mago", 1f, 100f, 1f, 0f);
     public DoomRope doomRope = new("DoomRope", 15, true);
     public GoldenBullet goldenBullet = new("GoldenBullet", 3, true);
     public HealerPatch healerPatch = new("HealerPatch", 30, true);
     public void Start()
     {
-        agente1.currentHealth = agente1.maxHealth;
+        agente2.currentHealth = agente2.maxHealth;
         goldenBullet.Cooldown = 0;
     }
 
     public void Update(){
-        agente1.PlayerMove();
+        agente2.PlayerMove();
         
         if(Input.GetButtonDown("Fire1") && goldenBullet.Usable == true)
         {
