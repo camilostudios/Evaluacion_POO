@@ -5,6 +5,8 @@ public class GoldenBullet : Skills
     float damage = 20f;
     HealthSystem healthSystem;
     public Camera camera;
+    Agent1 camera1 = camera;
+    Agent2 camera2 = camera;
     
     public GoldenBullet(string name, int Cooldown, bool Usable)
     {

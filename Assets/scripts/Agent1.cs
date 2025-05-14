@@ -6,6 +6,8 @@ public class Agent1 : MonoBehaviour
     public DoomRope doomRope = new("DoomRope", 15, true);
     public GoldenBullet goldenBullet = new("GoldenBullet", 3, true);
     public HealerPatch healerPatch = new("HealerPatch", 30, true);
+
+    public Transform camera;
     public void Start()
     {
         agente1.currentHealth = agente1.maxHealth;

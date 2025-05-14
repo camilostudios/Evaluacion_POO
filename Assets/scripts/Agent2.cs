@@ -3,12 +3,16 @@ using UnityEngine;
 public class Agent2 : MonoBehaviour
 {
     PlayerHandler agente2 = new("Mago", 1f, 100f, 1f, 0f);
+    ManaSystem manaSystem = new(100f, 0f, 100f);
     public DoomRope doomRope = new("DoomRope", 15, true);
     public GoldenBullet goldenBullet = new("GoldenBullet", 3, true);
     public HealerPatch healerPatch = new("HealerPatch", 30, true);
+
+    public Camera camera;
     public void Start()
     {
         agente2.currentHealth = agente2.maxHealth;
+        manaSystem.currentMana = manaSystem.maxMana;
         goldenBullet.Cooldown = 0;
     }
 
