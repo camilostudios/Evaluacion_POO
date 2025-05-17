@@ -1,26 +1,44 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
-public class ManaSystem
+public enum ManaFlowType
 {
-    public float minMana;
-    public float maxMana;
-    public float currentMana;
-    
-    public ManaSystem(){}
-    public ManaSystem(float maxMana, float minMana, float currentMana)
-    {
-        this.maxMana = maxMana;
-        this.minMana = minMana;
-        this.currentMana = currentMana;
-    }
-    public float RestoreMana(float boost){
-        currentMana += boost;
-        return currentMana;
-    } 
+    Instant,
+    ByTime
+}
 
-    //public float ManaConsumed(float damage)
-    //{
-        //currentHealth -= damage;
-        //return currentHealth;
-    //}
+[System.Serializable]
+public class ManaSystem : StatSystem
+{
+    [SerializeField] private ManaFlowType manaFlowType;
+    [SerializeField, Min(1)] private int rechargeValuePerSecond;
+    
+    public int MaxMana => MaxValue;
+    public int CurrentMana => CurrentValue;
+
+    public override void AffectValue(int value)
+    {
+        switch (manaFlowType)
+        {
+            case ManaFlowType.Instant:
+                base.AffectValue(value);
+                break;
+            case ManaFlowType.ByTime:
+                AffectByTime(value);
+                break;
+        }
+    }
+
+    private async void AffectByTime(int value)
+    {
+        int addedValue = 0;
+
+        while (addedValue < value)
+        {
+            addedValue += rechargeValuePerSecond;
+            base.AffectValue(rechargeValuePerSecond);
+            
+            await Task.Delay(1000);
+        }
+    }
 }

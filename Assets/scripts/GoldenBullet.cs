@@ -1,28 +1,19 @@
 using UnityEngine;
 
-public class GoldenBullet : Skills
+[CreateAssetMenu(fileName = "New GoldenBullet", menuName = "Skills/GoldenBullet")]
+public class GoldenBullet : Skill
 {
-    float damage = 20f;
-    HealthSystem healthSystem;
-    public Camera camera;
-    Agent1 camera1 = camera;
-    Agent2 camera2 = camera;
-    
-    public GoldenBullet(string name, int Cooldown, bool Usable)
-    {
-        this.name = name;
-        this.Cooldown = Cooldown;
-        this.Usable = Usable;
-    }
+    [Header("Properties")]
+    [SerializeField] private int damage = 20;
     
     public override void UseSkill()
     {
-        camera.GetComponent<Transform>();
-        RaycastHit raycastHit;
-        if(Physics.Raycast(camera.transform.position, camera.transform.forward, out raycastHit)){
-            healthSystem.DamageRecieved(damage);
+        base.UseSkill();
+        
+        Transform cameraTrans = Handler.PlayerCamera.transform;
+        
+        if(Physics.Raycast(cameraTrans.position, cameraTrans.forward, out RaycastHit raycastHit)){
+            Handler.HealthSystem.AffectValue(-damage);
         }
     }
-
-    
 }

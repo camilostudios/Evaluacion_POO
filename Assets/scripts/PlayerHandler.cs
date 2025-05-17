@@ -1,25 +1,67 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHandler : genericHandler 
+[RequireComponent(typeof(CharacterController))]
+public abstract class PlayerHandler : GenericHandler 
 {
-    public float speed;
-    public float gravity;
-    public CharacterController controller;
-    public Transform camera;
-
-    public genericHandler playable = new("Players");
+    [Header("Additional Stats")]
+    [SerializeField] private ManaSystem manaSystem;
+    [Space]
+    [Header("Movement")]
+    [SerializeField, Min(0)] private float speed;
+    [SerializeField] private float gravity;
+    [SerializeField] private Transform camera;
+    [Space]
+    [Header("Skills")]
+    [SerializeField] private Skill skill1, skill2, skill3;
+    [Space]
+    [Header("Required References")]
+    [SerializeField] private Camera playerCamera;
     
-    public PlayerHandler(){}
-    public PlayerHandler(string name, float speed, float maxHealth, float minHealth, float currentHealth)
+    private CharacterController _controller;
+    
+    public ManaSystem ManaSystem => manaSystem;
+    public Camera PlayerCamera => playerCamera;
+
+    protected override void Awake()
     {
-        this.name = name;
-        this.speed = speed;
-        healthSystem.maxHealth = maxHealth;
-        healthSystem.minHealth = minHealth;
-        healthSystem.currentHealth = currentHealth;
+        base.Awake();
+        
+        manaSystem.Init();
+        
+        _controller = GetComponent<CharacterController>();
+        
+        skill1?.Init(this);
+        skill2?.Init(this);
+        skill3?.Init(this);
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        
+        PlayerMove();
+        
+        if(Input.GetButtonDown("Fire1"))
+        {
+            skill1.UseSkill();
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            skill2.UseSkill();
+        }
+
+        if (Input.GetButtonDown("Fire3"))
+        {
+            skill3.UseSkill();
+        }
     }
     
-    public void PlayerMove(){
+    public abstract void UseResource(int cost);
+    public abstract int ResourceLeft();
+
+    private void PlayerMove(){
         float horizontalAxis = Input.GetAxisRaw("Horizontal");
         float verticalAxis = Input.GetAxisRaw("Vertical");
 
@@ -28,7 +70,6 @@ public class PlayerHandler : genericHandler
         float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
 
         Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-        controller.Move(moveDirection.normalized * speed * Time.deltaTime);
-
+        _controller.Move(moveDirection.normalized * speed * Time.deltaTime);
     }
 }

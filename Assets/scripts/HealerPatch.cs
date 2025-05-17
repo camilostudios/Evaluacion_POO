@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealerPatch : Skills
+public class HealerPatch : Skill
 {
     float cure = 20f;
     HealthSystem healthSystem;

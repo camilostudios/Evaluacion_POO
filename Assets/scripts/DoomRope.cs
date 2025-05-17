@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoomRope : Skills
+public class DoomRope : Skill
 {
     public float damage = 30f;
     public GameObject damageZone;

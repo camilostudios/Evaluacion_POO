@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Unplayable : genericHandler
+public class Unplayable : GenericHandler
 {
-    genericHandler enemy = new("Muñeco de prueba");
+    GenericHandler enemy = new("Muñeco de prueba");
     
     public void Update()
     {        
@@ -12,7 +12,7 @@ public class Unplayable : genericHandler
         }
     }
     
-    void Destroy(genericHandler enemy)
+    void Destroy(GenericHandler enemy)
     {
         Destroy(enemy);
     }
