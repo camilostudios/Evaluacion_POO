@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class ChargeMana : MonoBehaviour
 {
-    public ManaSystem manaSystem;
-
-    float boost = 10f;
+    private GenericHandler Handler;
+    
+    [SerializeField] int boost = 10;
 
     public void OnTriggerStay(Collider collision)
     {
-        manaSystem.RestoreMana(boost);
+        //Handler.ManaSystem.AffectValue(boost);
     }
 }

@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class ChargeHeatlh : MonoBehaviour
 {
-    public HealthSystem healthSystem;
+    private GenericHandler Handler;
 
-    float cure = 10f;
+    [SerializeField] int cure = 10;
 
     public void OnTriggerStay(Collider collision)
     {
-        healthSystem.RestoreHealth(cure);
+        Handler.HealthSystem.AffectValue(cure);
     }
 }

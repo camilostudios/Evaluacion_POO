@@ -2,18 +2,17 @@ using UnityEngine;
 
 public class Unplayable : GenericHandler
 {
-    GenericHandler enemy = new("Muñeco de prueba");
-    
+ 
     public void Update()
     {        
-        if(currentHealth < minHealth)
+        if(currentHealth = 0)
         {
-            Destroy(enemy);
+            Destroy();
         }
     }
     
-    void Destroy(GenericHandler enemy)
+    void Destroy()
     {
-        Destroy(enemy);
+        Destroy(GameObject.FindGameObjectWithTag("Unplayable"));
     }
 }

@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class LoseHealth : MonoBehaviour
 {
-    float damage = 10f;
-    HealthSystem healthSystem;
+    private GenericHandler Handler;
+    
+    [SerializeField]int damage = 10;
     
     public void OnTriggerStay(Collider collision)
     {
-        healthSystem.DamageRecieved(damage);
+        Handler.HealthSystem.AffectValue(-damage);
     }
 }
