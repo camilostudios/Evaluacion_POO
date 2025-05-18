@@ -2045,6 +2045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8f4f7f6c1bf2943b20a3d51c09fb31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1001 &1627766996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2293,6 +2294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509272eca92874fb29f3f3171e510e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cure: 10
 --- !u!1 &1955670809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,6 +2528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c014bc06e33e44b991e1c62348399c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boost: 10
 --- !u!1001 &2029136987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2637,6 +2640,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Agent 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7073563297799644955, guid: e379c17df986b4443bbbe9cf2c825800, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1225617579}
+    - target: {fileID: 7073563297799644955, guid: e379c17df986b4443bbbe9cf2c825800, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1225617578}
     - target: {fileID: 7995622142529293722, guid: e379c17df986b4443bbbe9cf2c825800, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.47
@@ -2692,6 +2703,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2406289072837297980, guid: b2c3daeb1553f25488078bedfe6a3b9d, type: 3}
       propertyPath: camera
+      value: 
+      objectReference: {fileID: 1225617579}
+    - target: {fileID: 2406289072837297980, guid: b2c3daeb1553f25488078bedfe6a3b9d, type: 3}
+      propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1225617578}
     - target: {fileID: 4700680598178100675, guid: b2c3daeb1553f25488078bedfe6a3b9d, type: 3}

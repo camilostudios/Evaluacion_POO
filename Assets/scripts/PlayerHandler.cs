@@ -11,6 +11,8 @@ public abstract class PlayerHandler : GenericHandler
     [SerializeField, Min(0)] private float speed;
     [SerializeField] private float gravity;
     [SerializeField] private Transform camera;
+    [SerializeField] private float turnCalmTime = 0.1f;
+    [SerializeField] float turnCalmVelocity;
     [Space]
     [Header("Skills")]
     [SerializeField] private Skill skill1, skill2, skill3;
@@ -42,17 +44,17 @@ public abstract class PlayerHandler : GenericHandler
         
         PlayerMove();
         
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && skill1 != null)
         {
             skill1.UseSkill();
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && skill2 != null)
         {
             skill2.UseSkill();
         }
 
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire3") && skill3 != null)
         {
             skill3.UseSkill();
         }
@@ -61,15 +63,20 @@ public abstract class PlayerHandler : GenericHandler
     public abstract void UseResource(int cost);
     public abstract int ResourceLeft();
 
-    private void PlayerMove(){
+    private void PlayerMove() {
         float horizontalAxis = Input.GetAxisRaw("Horizontal");
         float verticalAxis = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = new Vector3(horizontalAxis, 0, verticalAxis).normalized;
 
-        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
+        if (direction.magnitude >= 0.1f) 
+        { 
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnCalmVelocity, turnCalmTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-        Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-        _controller.Move(moveDirection.normalized * speed * Time.deltaTime);
+            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            _controller.Move(moveDirection.normalized * speed * Time.deltaTime);
+        }
     }
 }

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Unplayable : GenericHandler
 {
- 
-    public void Update()
+    
+    protected override void Update()
     {        
-        if(currentHealth = 0)
+        if(HealthSystem.CurrentHealth == 0)
         {
             Destroy();
         }
