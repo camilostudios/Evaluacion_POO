@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: New DoomRope
   m_EditorClassIdentifier: 
   skillName: 
-  cooldown: 0
-  cost: 0
+  cooldown: 10
+  cost: 10
   damageZone: {fileID: 8005921172635987096, guid: a4ef965cecfafa6469dadd18e732319c, type: 3}
-  CastZone: {fileID: 0}

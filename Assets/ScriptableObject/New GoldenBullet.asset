@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New GoldenBullet
   m_EditorClassIdentifier: 
   skillName: 
-  cooldown: 0
-  cost: 0
+  cooldown: 3
+  cost: 5
   damage: 20

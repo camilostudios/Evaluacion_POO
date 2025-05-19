@@ -9,6 +9,7 @@ public abstract class Skill : ScriptableObject
 
     protected PlayerHandler Handler { get; private set; }
     public int Cost => cost;
+    public int Cooldown => cooldown;
 
     public void Init(PlayerHandler handler)
     {

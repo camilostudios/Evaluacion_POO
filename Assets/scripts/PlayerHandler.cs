@@ -19,11 +19,13 @@ public abstract class PlayerHandler : GenericHandler
     [Space]
     [Header("Required References")]
     [SerializeField] private Camera playerCamera;
+    [SerializeField] private GameObject castZone;
     
     private CharacterController _controller;
     
     public ManaSystem ManaSystem => manaSystem;
     public Camera PlayerCamera => playerCamera;
+    public GameObject CastZone => castZone;
 
     protected override void Awake()
     {
@@ -44,17 +46,17 @@ public abstract class PlayerHandler : GenericHandler
         
         PlayerMove();
         
-        if(Input.GetButtonDown("Fire1") && skill1 != null)
+        if(Input.GetButtonDown("Fire1") && skill1 != null && ResourceLeft() > skill1.Cost)
         {
             skill1.UseSkill();
         }
 
-        if (Input.GetButtonDown("Fire2") && skill2 != null)
+        if (Input.GetButtonDown("Fire2") && skill2 != null && ResourceLeft() > skill2.Cost)
         {
             skill2.UseSkill();
         }
 
-        if (Input.GetButtonDown("Fire3") && skill3 != null)
+        if (Input.GetButtonDown("Fire3") && skill3 != null && ResourceLeft() > skill3.Cost)
         {
             skill3.UseSkill();
         }

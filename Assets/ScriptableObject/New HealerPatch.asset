@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New HealerPatch
   m_EditorClassIdentifier: 
   skillName: 
-  cooldown: 0
+  cooldown: 5
   cost: 0
   cure: 20

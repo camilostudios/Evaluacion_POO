@@ -5,12 +5,12 @@ public class DoomRope : Skill
 {
     [Header("Properties")]
     [SerializeField] GameObject damageZone;
-    [SerializeField] GameObject CastZone;
     
     public override void UseSkill()
     {
         base.UseSkill();
-        
-        Instantiate(damageZone,CastZone.transform.position, CastZone.transform.rotation);
+
+        Transform castZone = Handler.CastZone.transform;
+        Instantiate(damageZone,castZone.transform.position, castZone.transform.rotation);
     }
 }

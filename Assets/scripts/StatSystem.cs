@@ -15,6 +15,5 @@ public abstract class StatSystem
     public virtual void AffectValue(int value)
     {
         _currentValue = Mathf.Clamp(_currentValue + value, 0, MaxValue);
-        Debug.Log($"Valor actual: {_currentValue}");
     }
 }

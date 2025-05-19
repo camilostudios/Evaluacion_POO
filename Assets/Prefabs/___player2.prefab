@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3281201418188218474}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105,22 +105,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSystem:
-    maxValue: 0
+    maxValue: 100
     _currentValue: 0
   manaSystem:
-    maxValue: 0
+    maxValue: 100
     _currentValue: 0
     manaFlowType: 0
     rechargeValuePerSecond: 0
   speed: 2
   gravity: -9.81
-  camera: {fileID: 0}
+  camera: {fileID: 3606931854345413727}
   turnCalmTime: 0.1
   turnCalmVelocity: 0
   skill1: {fileID: 11400000, guid: 6e4681bc7a263a0419d1d185184798be, type: 2}
   skill2: {fileID: 11400000, guid: 6a4a04a25c9b12a4ebb246e9c5cb0178, type: 2}
   skill3: {fileID: 11400000, guid: 91dcdc23f1643a349aae2f0bd6050cbf, type: 2}
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 4519251134287957236}
+  castZone: {fileID: 3281201418188218474}
 --- !u!1 &8106955351448595953
 GameObject:
   m_ObjectHideFlags: 0
