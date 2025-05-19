@@ -1,14 +1,16 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New DoomRope", menuName = "Skills/DoomRope")]
 public class DoomRope : Skill
 {
-    public float damage = 30f;
-    public GameObject damageZone;
+    [Header("Properties")]
+    [SerializeField] GameObject damageZone;
+    [SerializeField] GameObject CastZone;
     
     public override void UseSkill()
     {
         base.UseSkill();
         
-        GameObject.Instantiate(damageZone);
+        Instantiate(damageZone,CastZone.transform.position, CastZone.transform.rotation);
     }
 }

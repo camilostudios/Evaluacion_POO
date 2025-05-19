@@ -9,5 +9,6 @@ public class ChargeHeatlh : MonoBehaviour
     public void OnTriggerStay(Collider collision)
     {
         Handler.HealthSystem.AffectValue(cure);
+        print("esta interactuando");
     }
 }

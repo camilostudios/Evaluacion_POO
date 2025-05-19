@@ -6,26 +6,21 @@ public class PlayerStatus : MonoBehaviour
     public Slider manaSlider; // Referencia al Slider de Mana
     public Slider vidaSlider; // Referencia al Slider de Vida
 
-    public float maxMana = 100f;
-    public float maxVida = 100f;
-    private float currentMana;
-    private float currentVida;
+    ManaSystem manaSystem;
+    HealthSystem healthSystem;
 
-    private void Start()
+    private void Update()
     {
-        currentMana = maxMana;
-        currentVida = maxVida;
-
         UpdateSliders();
     }
 
     private void UpdateSliders()
     {
-        manaSlider.value = currentMana / maxMana;
-        vidaSlider.value = currentVida / maxVida;
+        manaSlider.value = manaSystem.CurrentMana;
+        vidaSlider.value = healthSystem.CurrentHealth;
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("AreaVida")) // Área que restaura vida
         {
@@ -37,5 +32,5 @@ public class PlayerStatus : MonoBehaviour
             currentMana = Mathf.Clamp(currentMana - 20f, 0f, maxMana); // Reduce maná
             UpdateSliders();
         }
-    }
+    }*/
 }

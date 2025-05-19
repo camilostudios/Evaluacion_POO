@@ -223,8 +223,8 @@ MonoBehaviour:
     maxValue: 0
     manaFlowType: 0
     rechargeValuePerSecond: 0
-  speed: 0
-  gravity: 0
+  speed: 2
+  gravity: -9.81
   camera: {fileID: 831125423042361952}
   turnCalmTime: 0.1
   turnCalmVelocity: 0

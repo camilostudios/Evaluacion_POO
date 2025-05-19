@@ -9,5 +9,6 @@ public class LoseHealth : MonoBehaviour
     public void OnTriggerStay(Collider collision)
     {
         Handler.HealthSystem.AffectValue(-damage);
+        print("esta interactuando");
     }
 }
